@@ -36,7 +36,7 @@ const nicks = ["Faísca Azul", "Engrenagem Veloz", "Circuito Curioso", "Pixel Br
 export const demoRanking: RankingEntry[] = nicks.map((n, i) => ({
   id: `u${i}`,
   nickname: n,
-  avatar: avatars[i],
+  avatar: avatars[i]!,
   points: { semanal: 420 - i * 28 - ((i * 7) % 5) * 9, mensal: 1650 - i * 105 + ((i * 3) % 4) * 30, geral: 4800 - i * 330 },
   level: Math.max(1, 6 - Math.floor(i / 2)),
   medals: Math.max(1, 8 - i),

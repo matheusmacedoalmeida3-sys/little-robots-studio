@@ -21,7 +21,7 @@ export interface Project {
   description: string;
   categoryId: string;
   difficulty: Difficulty;
-  minutes?: number;
+  minutes?: number | undefined;
   materials: string[];
   objective: string;
   steps: string[];
@@ -47,7 +47,7 @@ export interface Submission {
   description: string;
   status: SubmissionStatus;
   date: string;
-  adminNote?: string;
+  adminNote?: string | undefined;
   author: string;
 }
 

@@ -69,7 +69,7 @@ export function DemoStoreProvider({ children }: { children: ReactNode }) {
   const store = useMemo<Store>(() => {
     const confirmedPoints = points.filter((p) => p.state === "confirmado").reduce((a, b) => a + b.amount, 0);
     const pendingPoints = points.filter((p) => p.state === "pendente").reduce((a, b) => a + b.amount, 0);
-    const idx = [...levels].reverse().find((l) => confirmedPoints >= l.minPoints) ?? levels[0];
+    const idx = [...levels].reverse().find((l) => confirmedPoints >= l.minPoints) ?? levels[0]!;
     const next = levels.find((l) => l.minPoints > confirmedPoints);
     const pct = next ? Math.round(((confirmedPoints - idx.minPoints) / (next.minPoints - idx.minPoints)) * 100) : 100;
 
