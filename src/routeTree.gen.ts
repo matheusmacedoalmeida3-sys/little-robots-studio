@@ -10,33 +10,167 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AdminRouteImport } from './routes/admin'
+import { Route as AjudaRouteImport } from './routes/ajuda'
+import { Route as ConquistasRouteImport } from './routes/conquistas'
+import { Route as EnviarFotosRouteImport } from './routes/enviar-fotos'
+import { Route as IndicarRouteImport } from './routes/indicar'
+import { Route as MeusProjetosRouteImport } from './routes/meus-projetos'
+import { Route as PerfilRouteImport } from './routes/perfil'
+import { Route as RankingRouteImport } from './routes/ranking'
+import { Route as ProjetosIndexRouteImport } from './routes/projetos.index'
+import { Route as ProjetosIdRouteImport } from './routes/projetos.$id'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdminRoute = AdminRouteImport.update({
+  id: '/admin',
+  path: '/admin',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AjudaRoute = AjudaRouteImport.update({
+  id: '/ajuda',
+  path: '/ajuda',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ConquistasRoute = ConquistasRouteImport.update({
+  id: '/conquistas',
+  path: '/conquistas',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EnviarFotosRoute = EnviarFotosRouteImport.update({
+  id: '/enviar-fotos',
+  path: '/enviar-fotos',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IndicarRoute = IndicarRouteImport.update({
+  id: '/indicar',
+  path: '/indicar',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MeusProjetosRoute = MeusProjetosRouteImport.update({
+  id: '/meus-projetos',
+  path: '/meus-projetos',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PerfilRoute = PerfilRouteImport.update({
+  id: '/perfil',
+  path: '/perfil',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RankingRoute = RankingRouteImport.update({
+  id: '/ranking',
+  path: '/ranking',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProjetosIndexRoute = ProjetosIndexRouteImport.update({
+  id: '/projetos/',
+  path: '/projetos/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProjetosIdRoute = ProjetosIdRouteImport.update({
+  id: '/projetos/$id',
+  path: '/projetos/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/admin': typeof AdminRoute
+  '/ajuda': typeof AjudaRoute
+  '/conquistas': typeof ConquistasRoute
+  '/enviar-fotos': typeof EnviarFotosRoute
+  '/indicar': typeof IndicarRoute
+  '/meus-projetos': typeof MeusProjetosRoute
+  '/perfil': typeof PerfilRoute
+  '/ranking': typeof RankingRoute
+  '/projetos/$id': typeof ProjetosIdRoute
+  '/projetos/': typeof ProjetosIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/admin': typeof AdminRoute
+  '/ajuda': typeof AjudaRoute
+  '/conquistas': typeof ConquistasRoute
+  '/enviar-fotos': typeof EnviarFotosRoute
+  '/indicar': typeof IndicarRoute
+  '/meus-projetos': typeof MeusProjetosRoute
+  '/perfil': typeof PerfilRoute
+  '/ranking': typeof RankingRoute
+  '/projetos/$id': typeof ProjetosIdRoute
+  '/projetos': typeof ProjetosIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/admin': typeof AdminRoute
+  '/ajuda': typeof AjudaRoute
+  '/conquistas': typeof ConquistasRoute
+  '/enviar-fotos': typeof EnviarFotosRoute
+  '/indicar': typeof IndicarRoute
+  '/meus-projetos': typeof MeusProjetosRoute
+  '/perfil': typeof PerfilRoute
+  '/ranking': typeof RankingRoute
+  '/projetos/$id': typeof ProjetosIdRoute
+  '/projetos/': typeof ProjetosIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/admin'
+    | '/ajuda'
+    | '/conquistas'
+    | '/enviar-fotos'
+    | '/indicar'
+    | '/meus-projetos'
+    | '/perfil'
+    | '/ranking'
+    | '/projetos/$id'
+    | '/projetos/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/admin'
+    | '/ajuda'
+    | '/conquistas'
+    | '/enviar-fotos'
+    | '/indicar'
+    | '/meus-projetos'
+    | '/perfil'
+    | '/ranking'
+    | '/projetos/$id'
+    | '/projetos'
+  id:
+    | '__root__'
+    | '/'
+    | '/admin'
+    | '/ajuda'
+    | '/conquistas'
+    | '/enviar-fotos'
+    | '/indicar'
+    | '/meus-projetos'
+    | '/perfil'
+    | '/ranking'
+    | '/projetos/$id'
+    | '/projetos/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AdminRoute: typeof AdminRoute
+  AjudaRoute: typeof AjudaRoute
+  ConquistasRoute: typeof ConquistasRoute
+  EnviarFotosRoute: typeof EnviarFotosRoute
+  IndicarRoute: typeof IndicarRoute
+  MeusProjetosRoute: typeof MeusProjetosRoute
+  PerfilRoute: typeof PerfilRoute
+  RankingRoute: typeof RankingRoute
+  ProjetosIdRoute: typeof ProjetosIdRoute
+  ProjetosIndexRoute: typeof ProjetosIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +182,91 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/admin': {
+      id: '/admin'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof AdminRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ajuda': {
+      id: '/ajuda'
+      path: '/ajuda'
+      fullPath: '/ajuda'
+      preLoaderRoute: typeof AjudaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/conquistas': {
+      id: '/conquistas'
+      path: '/conquistas'
+      fullPath: '/conquistas'
+      preLoaderRoute: typeof ConquistasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/enviar-fotos': {
+      id: '/enviar-fotos'
+      path: '/enviar-fotos'
+      fullPath: '/enviar-fotos'
+      preLoaderRoute: typeof EnviarFotosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/indicar': {
+      id: '/indicar'
+      path: '/indicar'
+      fullPath: '/indicar'
+      preLoaderRoute: typeof IndicarRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/meus-projetos': {
+      id: '/meus-projetos'
+      path: '/meus-projetos'
+      fullPath: '/meus-projetos'
+      preLoaderRoute: typeof MeusProjetosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/perfil': {
+      id: '/perfil'
+      path: '/perfil'
+      fullPath: '/perfil'
+      preLoaderRoute: typeof PerfilRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ranking': {
+      id: '/ranking'
+      path: '/ranking'
+      fullPath: '/ranking'
+      preLoaderRoute: typeof RankingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/projetos/': {
+      id: '/projetos/'
+      path: '/projetos'
+      fullPath: '/projetos/'
+      preLoaderRoute: typeof ProjetosIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/projetos/$id': {
+      id: '/projetos/$id'
+      path: '/projetos/$id'
+      fullPath: '/projetos/$id'
+      preLoaderRoute: typeof ProjetosIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AdminRoute: AdminRoute,
+  AjudaRoute: AjudaRoute,
+  ConquistasRoute: ConquistasRoute,
+  EnviarFotosRoute: EnviarFotosRoute,
+  IndicarRoute: IndicarRoute,
+  MeusProjetosRoute: MeusProjetosRoute,
+  PerfilRoute: PerfilRoute,
+  RankingRoute: RankingRoute,
+  ProjetosIdRoute: ProjetosIdRoute,
+  ProjetosIndexRoute: ProjetosIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

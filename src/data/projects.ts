@@ -157,7 +157,7 @@ export const DEFAULT_POINTS: Record<Difficulty, number> = { iniciante: 50, inter
 const adultCats = new Set(["circuitos", "motores", "sensores", "automacao", "avancados", "reciclaveis"]);
 
 export const projects: Project[] = categories.flatMap((cat, ci) =>
-  names[cat.id].map(([name, description], i) => {
+  names[cat.id]!.map(([name, description], i) => {
     const number = ci * 10 + i + 1;
     const difficulty = cat.id === "avancados" ? (i < 3 ? "intermediario" : "avancado") : cat.id === "iniciantes" ? (i < 7 ? "iniciante" : "intermediario") : diffFor(i);
     const adult = adultCats.has(cat.id) || difficulty === "avancado";
@@ -169,7 +169,7 @@ export const projects: Project[] = categories.flatMap((cat, ci) =>
       categoryId: cat.id,
       difficulty,
       minutes: number % 7 === 0 ? undefined : 20 + ((number * 13) % 7) * 10,
-      materials: baseMaterials[cat.id],
+      materials: baseMaterials[cat.id]!,
       objective: `Compreender, na prática, os conceitos de ${cat.name.toLowerCase()} construindo "${name}".`,
       steps,
       safety: [
